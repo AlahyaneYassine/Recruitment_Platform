@@ -1,75 +1,81 @@
 # Recruitment Platform
 
-Plateforme de recrutement développée avec **Django** : les recruteurs publient des offres d'emploi, les candidats postulent avec CV et lettre de motivation, et une messagerie intégrée permet l'échange entre les deux parties.
+A recruitment platform developed with **Django**: recruiters can publish job listings, candidates can apply with their CVs and cover letters, and an integrated messaging system enables communication between both parties.
 
-## Fonctionnalités
+## Features
 
-**Comptes**
-- Deux types de profils distincts : **Candidat** et **Recruteur** (un utilisateur ne peut pas être les deux à la fois)
-- Inscription / connexion séparées par rôle
-- Profil candidat : compétences, expérience, formation, photo de profil
-- Profil recruteur : nom et description de l'entreprise, logo
+**User Accounts**
+- Two distinct profile types: **Candidate** and **Recruiter** (a user cannot have both roles simultaneously).
+- Separate registration and login processes for each role.
+- Candidate profile: skills, work experience, education, and profile picture.
+- Recruiter profile: company name, company description, and logo.
 
-**Offres d'emploi**
-- Publication d'offres par les recruteurs (type de contrat, localisation, salaire, date limite)
-- Liste des offres actives, avec exclusion automatique des offres déjà postulées pour un candidat connecté
+**Job Listings**
+- Recruiters can publish job openings with details such as contract type, location, salary, and application deadline.
+- Active job listings, with automatic exclusion of positions a logged-in candidate has already applied for.
 
-**Candidatures**
-- Candidature à une offre avec upload de CV et lettre de motivation
-- Suivi de statut : en attente, examinée, entretien, acceptée, rejetée
-- Un candidat ne peut postuler qu'une fois par offre
+**Applications**
+- Apply for a job by uploading a CV and cover letter.
+- Application status tracking: pending, under review, interview, accepted, or rejected.
+- Candidates can apply only once per job listing.
 
-**Messagerie**
-- Messages entre candidat et recruteur, liés ou non à une candidature
-- Fils de discussion (réponses), statut lu/non lu
+**Messaging**
+- Direct messaging between candidates and recruiters, linked or unlinked to a specific application.
+- Conversation threads with replies and read/unread status tracking.
 
-**Tableau de bord**
-- App dédiée (`apps/dashboard`), actuellement au stade initial
+**Dashboard**
+- Dedicated application (`apps/dashboard`), currently in its initial development stage.
 
-## Stack technique
+## Tech Stack
 
 - **Django 5.2**
-- **SQLite** (base de développement)
-- **django-crispy-forms** + **crispy-bootstrap5** — mise en forme des formulaires
-- **django-debug-toolbar** — débogage en développement
-- Internationalisation activée (`locale/fr`)
+- **SQLite** (development database)
+- **django-crispy-forms** + **crispy-bootstrap5** — form rendering and styling.
+- **django-debug-toolbar** — development debugging.
+- Internationalization enabled (`locale/fr`).
 
-## Prérequis
+## Prerequisites
 
 - Python 3.13
 - pip
 
-## Installation
+## Installation and Setup
 
 ```bash
 git clone https://github.com/AlahyaneYassine/recruitment_platform.git
 cd recruitment_platform
+
 python -m venv venv
-source venv/bin/activate  # ou venv\Scripts\activate sous Windows
+source venv/bin/activate  # Or venv\Scripts\activate on Windows
+
 pip install -r requirements.txt
-pip install django-debug-toolbar  # dépendance utilisée mais absente de requirements.txt
+pip install django-debug-toolbar  # Dependency used but missing from requirements.txt
+
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Puis ouvrir `http://127.0.0.1:8000`.
+Then open `http://127.0.0.1:8000` in your browser.
 
-## Structure du projet
+## Project Structure
 
-```
+```text
 recruitment_platform/
-├── cand/                  # Configuration du projet Django (settings, urls, wsgi/asgi)
+├── cand/                  # Django project configuration (settings, URLs, WSGI/ASGI)
 ├── apps/
-│   ├── accounts/          # Utilisateurs, profils candidat/recruteur
-│   ├── jobs/               # Offres d'emploi
-│   ├── applications/       # Candidatures (CV, lettre de motivation, statut)
-│   ├── messaging/          # Messagerie candidat ↔ recruteur
-│   └── dashboard/          # Tableau de bord (en cours de développement)
-├── templates/              # Templates globaux
-├── media/                  # Fichiers uploadés (CV, photos...) — non versionné
+│   ├── accounts/          # Users and candidate/recruiter profiles
+│   ├── jobs/              # Job listings
+│   ├── applications/      # Applications (CV, cover letter, status)
+│   ├── messaging/         # Candidate ↔ recruiter messaging
+│   └── dashboard/        # Dashboard (under development)
+├── templates/             # Global templates
+├── media/                 # Uploaded files (CVs, photos, etc.) — not version-controlled
 └── requirements.txt
 ```
 
+## Author
+
 **Yassine Alahyane**
+
 Cybersecurity Engineering Student
