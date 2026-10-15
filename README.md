@@ -71,15 +71,5 @@ recruitment_platform/
 └── requirements.txt
 ```
 
-## Pistes d'amélioration
-
-- `SECRET_KEY` et les identifiants email sont actuellement en dur dans `settings.py` — à externaliser via des variables d'environnement (`django-environ` ou `python-decouple`) avant tout déploiement, et à régénérer.
-- `django-debug-toolbar` est utilisé dans `settings.py` mais absent de `requirements.txt`.
-- `DEBUG = True` et `ALLOWED_HOSTS = []` : à adapter avant toute mise en production.
-- Le dossier `media/` (fichiers uploadés par les utilisateurs) et `db.sqlite3` ne doivent jamais être versionnés — voir `.gitignore`.
-- L'app `dashboard` n'a pas encore de logique implémentée.
-
-## Auteur
-
 **Yassine Alahyane**
 Cybersecurity Engineering Student
